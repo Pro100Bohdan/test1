@@ -1,0 +1,34 @@
+<? if (is_array($data['tr'])) { ?>
+    
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>Package Number</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Department</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) { ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['package_id']?></td>
+        <td><?=$tab['package_number']?></td>
+        <td><?=$tab['date']?></td>
+        <td><?=$tab['time']?></td>
+        <td><?=str_replace('-', ' ', $tab['tool'])?></td>
+        <td><a href="/admin/edit/<?=$tab['package_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+        <td><a href="/admin/orders/<?=$tab['package_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+        <td><i class="fa fa-archive add-to-archive" package="<?=$tab['package_id']?>" aria-hidden="true"></i></td>
+    </tr>
+    
+    <? } ?>
+    
+<? } else { ?>
+    
+    <p>Packages is not found.</p>
+    
+<? } ?>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html">
+	<meta name="author" content="Kylaksizov">
+
+	<title>Live Search</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/search.js"></script>
+    
+    <style>
+ .search{
+    position:relative;
+}
+
+.search_result{
+    background: #FFF;
+    border: 5px #ccc solid;
+    width: 500px;
+    border-radius: 4px;
+    max-height:550px;
+    overflow-y:scroll;
+    display:none;
+}
+
+.search_result td {
+    list-style: none;
+    padding: 5px 10px;
+    margin: 0 0 0 -40px;
+    color: #0896D3;
+    border-bottom: 1px #ccc solid;
+    cursor: pointer;
+    transition:0.3s;
+}
+
+.search_result li:hover {
+    background: #F9FF00;
+}
+
+#search_by_miw {
+    width: 292px;
+    height: 20px;
+
+}
+
+
+    </style>
+    
+</head>
+
+<body>
+    <h2>Form for search MIW part numbers !</h2>
+    <input type="text" name="referal" placeholder="search by SGR part number or BARCODE" value="" class="who"  autocomplete="off" id=search_by_miw>
+    <ul class="search_result"></ul>
+
+</body>
+</html>

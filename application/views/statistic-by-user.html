@@ -1,0 +1,76 @@
+<div id="top">
+    <div>STATISTIC</div>
+    <hr>
+    <div id="sorting">
+       <div>
+            <a sort='undefined' href="All">All packages</a>
+            <a sort='Bystronik' href="Bystronik">Bystronik</a>
+            <a sort='CNC' href="CNC">CNC</a>
+            <a sort='Riveting' href="Riveting">Riveting</a>
+            <a sort='LaserMarking' href="Laser-Marking">Laser marking</a>
+            <a sort='SteelPacking' href="Steel-Packing">Steel packing</a>
+            <a sort='Grooving' href="Grooving">Grooving</a>
+        </div>
+        <div>
+            <input type="date" id="data-1">
+            <input type="date" id="date-2">
+        </div>
+    </div>
+    <div></div>
+</div>
+<div id="content-box">
+    
+<? if ($data['orders']) { ?>
+    
+<table id="order-table">
+    
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Order Number</td>
+        <td>Part Number</td>
+        <td>Laser Marking</td>
+        <td>Material</td>
+        <td>Color</td>
+        <td>Quantity</td>
+        <td>Demension</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Orders (<?=$data['cnt']?>)</td>
+        <td>Note</td>
+        <td>Edit</td>
+        <td>Print</td>
+        <td>Delete</td>
+    </tr>
+    
+    <? foreach ($data['orders'] as $tab) { ?>
+    
+    <tr order_id="<?=$tab['order_id']?>">
+        <td><?=$tab['pos']?></td>
+        <td><?=$tab['author']?></td>
+        <td><?=$tab['order_number']?></td>
+        <td><?=$tab['part_number']?></td>
+        <td><?=$tab['laser_marking']?></td>
+        <td><?=$tab['material']?></td>
+        <td><?=$tab['color']?></td>
+        <td><?=$tab['quantity']?></td>
+        <td><?=$tab['demension']?></td>
+        <td><?=$tab['date']?></td>
+        <td><?=$tab['time']?></td>
+        <td><?=$tab['tool']?></td>
+        <td><?=$tab['note']?></td>
+        <td class="edit-order-open"><a href="/admin/redaction/<?=$tab['order_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+        <td class="print"><a href="/admin/print/<?=$tab['order_id']?>" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+        <td class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+    </tr>
+    
+    <? } ?>
+    
+</table>
+    
+<? } else { ?>
+    
+    <p>Orders is not found.</p>
+    
+<? } ?>
+</div>

@@ -1,0 +1,145 @@
+<pre><? //print_r($data) ?></pre>
+   <div id="top">
+    <div>STATISTIC (Order by <?= $data['order_by'] ?>)</div>
+    <hr>
+    <div id="sorting">
+        <div>
+            <!--<a href="/admin/statistic">By User & Sector</a>
+            <a href="/admin/statistic/user">By User</a>
+            <a href="/admin/statistic/sector">By Sector</a-->
+            <select name="order" id="" form="orderBy">
+                <option value="package_id, user">By User & Package</option>
+                <option value="tool, user">By User & Department</option>
+                <option value="user">By User</option>
+                <option value="tool">By Department</option>
+            </select>
+            <select name="orderTime" id="" form="orderBy">
+                <option value="8">Last 8 hours</option>
+                <option value="16">Last 16 hours</option>
+                <option value="24">Last 24 hours</option>
+                <option value="168">Last week</option>
+                <option value="720">Last month</option>
+            </select>
+            <button type="submit" form="orderBy">Sort</button>
+            <form action="" method="get" id="orderBy"></form>
+        </div>
+    </div>
+    
+</div>
+<div id="content-box">
+<? if (is_array($data['tr'])) : ?>
+
+<? if ($data['order_by'] == 'user') : ?>
+
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Orders</td>
+        <td>Sum</td>
+        <!--<td></td>-->
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) : ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['pos']?></td>
+        <td><?=$tab['user']?></td>
+        <td><?=$tab['cnt']?></td>
+        <td><?=$tab['sum']?></td>
+        <!--<td><a href="/admin/user_stat_orders/<?=$tab['user']?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>-->
+    </tr>
+    
+    <? endforeach; ?>
+    
+</table>
+
+<? elseif ($data['order_by'] == 'tool, user') : ?>
+
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Department</td>
+        <td>Orders</td>
+        <td>Quantity</td>
+        <!--<td></td>-->
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) : ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['pos']?></td>
+        <td><?=$tab['user']?></td>
+        <td><?=$tab['tool']?></td>
+        <td><?=$tab['cnt']?></td>
+        <td><?=$tab['sum']?></td>
+        <!--<td><a href="/admin/user_stat_orders/<?=$tab['user']?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>-->
+    </tr>
+    
+    <? endforeach; ?>
+    
+</table>
+
+<? elseif ($data['order_by'] == 'tool') : ?>
+
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>Department</td>
+        <td>Order Lils</td>
+        <td>Quantity</td>
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) : ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['pos']?></td>
+        <td><?=$tab['tool']?></td>
+        <td><?=$tab['cnt']?></td>
+        <td><?=$tab['sum']?></td>
+    </tr>
+    
+    <? endforeach; ?>
+    
+</table>
+
+<? else : ?>
+
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Package Number</td>
+        <td>Department</td>
+        <td>Orders</td>
+        <td>Quantity</td>
+        <!--<td></td>-->
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) : ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['pos']?></td>
+        <td><?=$tab['user']?></td>
+        <td><?=$tab['package_number']?></td>
+        <td><?=$tab['tool']?></td>
+        <td><?=$tab['cnt']?></td>
+        <td><?=$tab['sum']?></td>
+        <!--<td><a href="/admin/user_stat_orders/<?=$tab['user']?>/<?=$tab['package_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>-->
+    </tr>
+    
+    <? endforeach; ?>
+    
+</table>
+
+<? endif; ?>
+
+<? else : ?>
+   
+<p>Statistic is empty</p>
+   
+<? endif; ?>
+    
+
+</div>

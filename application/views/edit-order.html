@@ -1,0 +1,40 @@
+<div id="top">
+    <div>PACKAGES</div>
+    <div id="sorting">
+        
+    </div>  
+</div>
+ 
+   
+
+<table class="edit-page">
+    <tr>
+        <td><label for="">Order Number</label><input type="text" id="order_number" placeholder="Order Number" value="<?=$data['order_number']?>"></td>
+        <td><input type="text" id="barcode" placeholder="Barcode" value="<?=$data['barcode']?>" maxlength="13"></td>
+        <td><input type="text" id="part_number" placeholder="Part Number" value="<?=$data['part_number']?>" disabled></td>
+        <td><input type="text" id="laser_marking" placeholder="Laser Marking" value="<?=$data['laser_marking']?>"></td>
+        <td><input type="text" id="material" placeholder="Material" value="<?=$data['material']?>" disabled></td>
+    </tr>
+    <tr>
+        
+        <td>
+            <select id="color">
+                <option><?=$data['color']?></option>
+                <option>BLK</option>
+                <option>BLU</option>
+                <option>BNZ</option>
+                <option>GLD</option>
+                <option>GRN</option>
+                <option>HAA</option>
+                <option>HAB</option>
+                <option>ORG</option>
+                <option>RED</option>
+                <option>SLV</option>
+            </select>
+        </td>
+        <td><input type="text" id="quantity" placeholder="Quantity" value="<?=$data['quantity']?>"></td>
+        <td><input type="text" id="demension" placeholder="Demension" value="<?=$data['demension']?>" disabled></td>
+        <td><input type="text" id="note" placeholder="Note" value="<?=$data['note']?>"></td>
+        <td><input type="hidden" value="<?=$data['order_id']?>" id="order_id"><button id="edit-order">Edit this order</button></td>
+    </tr>
+</table>

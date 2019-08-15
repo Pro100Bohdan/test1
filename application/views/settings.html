@@ -1,0 +1,30 @@
+<div id="top">
+    <span>SETTINGS</span>
+    <div id="sorting"><a sort='undefined' href="/admin/packages">All packages</a><a sort='Bystronik' href="/admin/packages/Bystronik">Bystronik</a><a sort='Others' href="/admin/packages/Others">Others</a></div>
+    
+</div>
+<div id="content-box">
+    
+<table id="package-table">
+    <tr>
+        <td style="width:50px">Pos.</td>
+        <td style="width:200px;">User Status</td>
+        <td style="width:200px;">Login</td>
+        <td>Password</td>
+        <td style="width:100px;"></td>
+    </tr>
+    
+    <? foreach ($data['keys'] as $key) { ?>
+    
+    <tr package_id="<?=$tab['id']?>">
+        <td><?=$key['key_id']?></td>
+        <td><?=$key['title_key']?></td>
+        <td></td>
+        <td><?=$key['enter_key']?></td>
+        <td><a href="/admin/key_edit/<?=$key['key_id']?>">Edit</a></td>
+    </tr>
+    
+    <? } ?>
+    
+</table>
+</div>

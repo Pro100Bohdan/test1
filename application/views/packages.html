@@ -1,0 +1,102 @@
+
+<div id="top">
+    <div>ORDERS <?= $data['tool'] ?></div>
+    <hr>
+    <div id="sorting">
+        <div>
+            <a sort='undefined' href="/admin/packages">All packages</a>
+            <a sort='Bystronik' href="/admin/packages/Bystronik">Bystronik</a>
+            <a sort='CNC' href="/admin/packages/CNC">CNC</a>
+            <a sort='Riveting' href="/admin/packages/Riveting">Riveting</a>
+            <a sort='LaserMarking' href="/admin/packages/Laser-Marking/">Laser marking</a>
+            <a sort='SteelPacking' href="/admin/packages/Steel-Packing/">Steel packing</a>
+            <a sort='Grooving' href="/admin/packages/Grooving/">Grooving</a>
+            <a sort='Search' href="http://supersprox.eu/search_bystronik/"><p>Search</p></a>
+        </div>
+
+        <div>
+            <input type="date" id="data-1">
+            <input type="date" id="date-2">
+        </div>
+    </div>
+    <hr>
+    <div>
+        <? if ($_SESSION['barcode-service']['rights'] == '200' || $_SESSION['barcode-service']['rights'] == '150' || $_SESSION['barcode-service']['rights'] == '100') : ?>
+       <input type="text" id="package_number" placeholder="Package Number">
+       <select id="tool">
+            <option><?= $data['tool'] ?></option>
+            <option>Bystronik</option>
+            <option>CNC</option>
+            <option>Riveting</option>
+            <option>Laser marking</option>
+            <option>Steel packing</option>
+            <option>Grooving</option>
+        </select>
+        <button id="create-package">Create new order</button>
+        <? endif; ?>
+    </div>
+    
+    
+    <? if ($data['cnt'] > 50) : ?>
+    <hr>
+    <div class="paginator">
+        <? for($page = 1; $page < $data['cnt']; $page++) : ?>
+        <? if ($page == 1) : ?>
+        <a href="?page=<?=$page?>&invoice=<?=$_GET['invoice']?>&stamping=<?=$_GET['stamping']?>&partnumber=<?=$_GET['partnumber']?>&barcode=<?=$_GET['barcode']?>&ordernumber=<?=$_GET['ordernumber']?>">First page</a>
+        <? endif; ?>
+        
+        <? if ($data['limiter'][0] >= $page && $data['limiter'][1] <= $page) : ?>
+        <a href="?page=<?=$page?>&invoice=<?=$_GET['invoice']?>&stamping=<?=$_GET['stamping']?>&partnumber=<?=$_GET['partnumber']?>&barcode=<?=$_GET['barcode']?>&ordernumber=<?=$_GET['ordernumber']?>"><?=$page?></a>
+        <? endif; ?>
+        
+        <? if ($page == $data['cnt'] - 1) : ?>
+        <a href="?page=<?=$page?>&invoice=<?=$_GET['invoice']?>&stamping=<?=$_GET['stamping']?>&partnumber=<?=$_GET['partnumber']?>&barcode=<?=$_GET['barcode']?>&ordernumber=<?=$_GET['ordernumber']?>">Last page</a>
+        <? endif; ?>
+        <? endfor; ?>
+    </div>
+    <? endif; ?>
+</div>
+<div id="content-box">
+    
+<? if (is_array($data['tr'])) { ?>
+    
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Package Number</td>
+        <td>Time</td>
+        <td>Department</td>
+        <td></td>
+        <td></td>
+        <? if ($_SESSION['barcode-service']['rights'] == '200' || $_SESSION['barcode-service']['rights'] == '150') : ?>
+        <td></td>
+        <? endif; ?>
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) { ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['package_id']?></td>
+        <td><?=$tab['user']?></td>
+        <td><?=$tab['package_number']?></td>
+        <td><?=$tab['time']?></td>
+        <td><?=str_replace('-', ' ', $tab['tool'])?></td>
+        <td><a href="/admin/edit/<?=$tab['package_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+        <td><a href="/admin/orders/<?=$tab['package_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+        <? if ($_SESSION['barcode-service']['rights'] == '200' || $_SESSION['barcode-service']['rights'] == '150') : ?>
+        <td><i class="fa fa-archive add-to-archive" package="<?=$tab['package_id']?>" aria-hidden="true"></i></td>
+        <? endif; ?>
+    </tr>
+    
+    <? } ?>
+    
+<? } else { ?>
+    
+    <p>Packages is not found.</p>
+    
+<? } ?>
+
+    
+</table>
+</div>

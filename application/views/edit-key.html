@@ -1,0 +1,12 @@
+<div id="top"><span>EDIT KEY</span></div>
+
+<div id="sorting"><a class="back" href="/admin/settings">Back</a></div>  
+
+<table id="new-order-table">
+    <tr>
+        <td><?=$data['title_key']?></td>
+        <td><input type="hidden" id="key-id" value="<?=$data['key_id']?>"><input type="text" id="key" placeholder="Key" value="<?=$data['enter_key']?>" maxlength="12"></td>
+        <td><button style="background-color:#c1c1bf" id="generate-key">Generate</button></td>
+        <td><button id="save-key">Save</button></td>
+    </tr>
+</table>

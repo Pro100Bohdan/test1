@@ -1,0 +1,258 @@
+@basecolor: #597fa3;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+.edit-table-order {
+    td {
+        padding: 10px;
+        
+        label {
+            margin-right: 10px;
+        }
+    }
+}
+
+#wrapper-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    
+    #admin-menu {
+        display: flex;
+        align-items: center;
+        background-color: @basecolor;
+        flex-wrap: wrap;
+        padding: 15px;
+        
+        i {
+            margin-right: 5px;
+        }
+        
+        div:nth-child(3) {
+            a {
+                padding: 0px 0px 0px 15px;
+                border-left: 1px solid rgba(255, 255, 255, 0.2);
+                font-size: 20px;
+                color: white;
+            }
+        }
+        
+        div:nth-child(2) {
+            flex: 1 1;
+        }
+        
+        div:nth-child(1) {
+            padding-right: 15px;
+        }
+        
+        p {
+            font-size: 25px;
+            color: white;
+        }
+        
+        ul {
+            display: flex;
+            list-style-type: none;
+            
+            a {
+                color: white;
+                display: block;
+                text-decoration: none;
+                padding: 0px 15px 0px 15px;
+                border-right: 1px solid rgba(255, 255, 255, 0.2);
+                border-left: 1px solid rgba(255, 255, 255, 0.2);
+                
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    
+    #content {
+        flex: 1 1;
+        display: flex;
+        flex-direction: column;
+        
+        i {
+            margin-right: 5px;
+        }
+        
+        #content-box {
+            overflow-y: auto;
+            flex: 1;
+            
+            .additional-tables {
+                
+                tr:first-child {
+                    background: none;
+                }
+                
+                tr:nth-child(2) {
+                    background-color: gray;
+                    color: white;
+                }
+            }
+        }
+        
+        button, input, select, option {
+            padding: 5px 10px 5px 10px;
+        }
+        
+        #content-box table {
+            width: 100%;
+            border-collapse: collapse;
+            
+            tr {
+            
+                &:nth-child(2n+1) {
+                    background-color: rgba(220, 220, 220, 0.1);
+                }
+                
+                &:hover {
+                    background-color: rgba(255, 255, 0, 0.2);
+                }
+
+                
+                &:first-child {
+                    background-color: gray;
+                    color: white;
+                }
+                
+                
+            }
+            
+            td {
+                border: 1px solid rgba(128, 128, 128, 0.3);
+                font-size: 14px;
+                padding: 5px 10px 5px 10px;
+                
+                .packages-table {
+                    background-color: limegreen;
+                    color: white;
+                    padding: 2px 15px 2px 15px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+            }
+            
+            img {
+                height: 15px;
+            }
+        }
+        
+        #top {
+            background-color: gainsboro;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            
+            > div:first-child {
+                text-align: center;
+            }
+            
+            hr {
+                margin: 5px 0px 5px 0px;
+            }
+            
+            > div:last-child {
+                display: flex;
+                flex-wrap: wrap;
+                
+                button, input, select {
+                    display: block;
+                    flex: 1 1 auto;
+                    flex-basis: 100px;
+                    word-break: keep-all;
+                    margin: 2px;
+                }
+            }
+            
+            .select-table-type {
+                display: flex;
+                justify-content: flex-start;
+                
+                a {
+                    margin-right: 5px;
+                    display: block;
+                    padding: 2px 15px 2px 15px;
+                    background-color: #597fa3;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+            }
+            
+            /*.new-order-add {
+                width: 600px;
+                
+                select, input, button {
+                }
+                
+                
+            }*/
+            
+            
+            
+            #sorting {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                
+                div:nth-child(1) {
+                    display: flex;
+                    height: auto;
+                    
+                    a {
+                        background-color: limegreen;
+                        margin-right: 5px;
+                        display: block;
+                        padding: 5px 15px 5px 15px;
+                        border-radius: 5px;
+                        text-decoration: none;
+                        color: white;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+.paginator {
+    
+    a {
+        background-color: #597fa3;
+        padding: 5px 10px 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        margin-right: 5px;
+        font-size: 12px;
+    }
+}
+
+.edit-page {
+    tr {
+        display: flex;
+        
+        td {
+            padding: 10px;
+            
+            input {
+                border-radius: 5px;
+                padding: 5px 10px 5px 10px;
+                border: 1px solid #b5b5b5;
+            }
+        }
+    }
+}

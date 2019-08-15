@@ -1,0 +1,430 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(128, 128, 128, 0.5);
+}
+
+.edit-table-order {
+    
+}
+
+button {
+    cursor: pointer;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+#content-box, #package-box {
+    overflow-y: auto;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+input, select {
+    outline: none;
+}
+
+/* LOGIN PAGE STYLE */
+
+
+#login {
+    position: absolute;
+    padding: 20px;
+    background-color: #00a7ff;
+    top: 50%;
+    left: 50%;
+    margin-left: -172.225px;
+    margin-top: -35px;
+    border-radius: 5px;
+}
+
+#login input {
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    line-height: 30px;
+    font-size: 15px;
+    text-align: center;
+}
+
+#login input:last-child {
+    width: 100px;
+    cursor: pointer;
+}
+
+
+
+/* ADMIN PAGE STYLE */
+
+#wrapper-page {
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper-page > div {
+    height: 100%;
+    float: left;
+}
+
+#admin-menu {
+    width: 15%;
+    background-color: #00a7ff;
+    text-align: center;
+    display: table;
+    position: relative;
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+    z-index: 5;
+}
+
+#admin-menu span {
+    line-height: 100px;
+}
+
+#admin-menu > a {
+    line-height: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    color: white;
+}
+
+#admin-menu ul {
+    list-style-type: none;
+}
+
+#admin-menu ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#admin-menu ul li a {
+    line-height: 80px;
+    color: white;
+}
+
+#admin-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#logo {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+#content {
+    width: 85%;
+    color: #808080;
+    position: relative;
+}
+
+#content #top {
+    background-color: rgb(237, 237, 237);
+    text-align: center;
+    width: 100%;
+}
+
+#content #top span {
+    line-height: 100px;
+}
+
+#content #create-table {
+    border-collapse: collapse;
+    font-size: 18px;
+    margin: 20px 0px 0px 100px;
+}
+
+#content #create-table tr:first-child input {
+    width: 80px;
+}
+
+#content #create-table tr:last-child input {
+    background-color: #00a7ff;
+    border: none;
+    width: 100px;
+    color: white;
+    float: right;
+}
+
+#content #create-table tr:last-child input:hover {
+    background-color: rgba(0, 167, 255, 0.8);
+    cursor: pointer;
+}
+
+#content #create-table td {
+    padding: 7px;
+}
+
+#content #create-table td input {
+    padding: 7px;
+    font-size: 18px;
+    width: 300px;
+    color: #808080;
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+#printed-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+#content #redaction-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+ 
+table {
+    border-collapse: collapse;
+    text-align: center;
+    color: #808080;
+    width: 100%;
+}
+
+table select {
+    width: 97%;
+    height: 32px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    color: #808080;
+    font-size: 15px;
+}
+
+table img {
+    width: 20px;
+}
+
+#package-table select, #order-table select {
+    border: none;
+}
+
+#package-table input, #order-table input {
+    background-color: white;
+    border: none;
+}
+
+table input {
+    line-height: 30px;
+    padding: 0px 10px 0px 10px;
+    width: 90%;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#new-order-table a {
+    line-height: 32px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    display: block;
+}
+
+#package-table a {
+    line-height: 25px;
+    background-color: limegreen;
+    color: white;
+    border-radius: 5px;
+    display: block;
+}
+
+#package-table td:nth-child(6) {
+    width: 50px;
+}
+
+#package-table td:nth-child(7) {
+    width: 120px;
+}
+
+#order-table table a:hover {
+    background-color: rgba(50, 205, 50, 0.8);
+}
+
+p {text-align: center; margin-top: 100px; color: #808080; font-size: 15px;}
+
+table td {
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    padding: 5px;
+    font-size: 15px;
+}
+
+#order-table td:nth-child(12) {
+    width: 35px;
+}
+
+#order-table td:nth-child(13) {
+    width: 35px;
+}
+
+#order-table td:nth-child(14) {
+    width: 35px;
+}
+
+table tr:nth-child(2n+1) {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+table tr:first-child {
+    background-color: rgb(203, 203, 203);
+    color: #808080;
+}
+
+#new-order-table button {
+    line-height: 32px;
+    width: 100%;
+    border: none;
+    background-color: limegreen;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+#new-order-table tr {
+    background-color: white;
+}
+
+#sorting {
+    padding: 10px;
+    background-color: #d6d6d6;
+    overflow: hidden;
+    text-align: left;
+}
+
+#sorting a {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    border-radius: 5px;
+    background-color: limegreen;
+    color: white;
+    margin-left: 5px;
+}
+
+#sorting a:first-child {
+    margin: 0;
+}
+
+#sorting div {
+    float: right;
+}
+
+#sorting div input {
+    padding: 4px 10px 3px 10px;
+    font-size: 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+#new-order-table td {
+    border: none;
+}
+
+#edit {
+    background-color: white;
+}
+
+#ticket {
+    width: 46mm;
+    height: 26mm;
+    padding: 2mm;
+    border: 0.1mm solid gray;
+    text-align: center;
+}
+
+#ticket p {
+    float: left;
+    margin: 0;
+    text-align: justify;
+    word-wrap: break-word;
+    font-size: 3.1mm;
+    font-family: 'Times New Roman';
+    margin-bottom: 2mm;
+}
+
+#ticket b {font-family: 'Times New Roman';}
+
+#ticket img {
+    float: left;
+    width: 46mm;
+    height: 14mm;
+    margin: auto;
+}
+
+#sorting .back {
+    float: right;
+    background-color: orange;
+}
+
+#package-table tr:hover {
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+#order-table tr, #package-table tr {
+    cursor: pointer;
+}
+
+#order-table tr:hover {
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+#package-table tr:first-child, #order-table tr:first-child {
+    background-color: rgba(128, 128, 128, 0.4);
+}
+
+#testTable td {
+    border: none;
+    background-color: none
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar-button {
+background-image:url('/');
+background-repeat:no-repeat;
+width:5px;
+height:0px
+}
+
+::-webkit-scrollbar-track {
+background-color: rgb(199, 199, 199);
+}
+
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 0px;
+border-radius: 0px;
+background-color: #808080;
+}
+
+/*::-webkit-scrollbar-thumb:hover{
+background-color: #a8a18a;
+}*/
+
+::-webkit-resizer{
+background-image:url('');
+background-repeat:no-repeat;
+width:4px;
+height:0px
+}
+
+::-webkit-scrollbar{
+width: 8px;
+}

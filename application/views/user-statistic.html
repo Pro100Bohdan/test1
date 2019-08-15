@@ -1,0 +1,60 @@
+<div id="top">
+    <div>STATISTIC (Order by <?= $data['order_by'] ?>)</div>
+    
+    <div id="sorting">
+        <!--<div>
+            <a href="/admin/statistic">By User & Sector</a>
+            <a href="/admin/statistic/user">By User</a>
+            <a href="/admin/statistic/sector">By Sector</a
+            <select name="sector" id="" form="orderBy">
+                <option value="Laser-Marking">Laser Marking</option>
+                <option value="Steel-Packing">Steel Packing</option>
+                <option value="Grooving">Grooving</option>
+            </select>
+            <select name="orderTime" id="" form="orderBy">
+                <option value="24">Last 24 hours</option>
+                <option value="168">Last week</option>
+                <option value="720">Last month</option>
+            </select>
+            <button type="submit" form="orderBy">Sort</button>
+            <form action="" method="get" id="orderBy"></form>
+        </div>-->
+    </div>
+    
+</div>
+<div id="content-box">
+
+<? if ($data['tr']) : ?>
+
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Order Number</td>
+        <td>Part Number</td>
+        <td>Department</td>
+        <td>Lils</td>
+        <td>Update Time</td>
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) : ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['pos']?></td>
+        <td><?=$tab['user']?></td>
+        <td><?=$tab['ordernumber']?></td>
+        <td><?=$tab['partnumber']?></td>
+        <td><?=$tab['sector']?></td>
+        <td><?=$tab['lils']?></td>
+        <td><?=$tab['date']?></td>
+    </tr>
+    
+    <? endforeach; ?>
+    
+</table>
+    
+<? else : ?>
+<p>Not found</p>
+<? endif; ?>
+
+</div>

@@ -1,0 +1,152 @@
+<div id="top">
+    <div>ORDERS (Package Number: <b><?=$data['package']?></b> Order: <b><?=str_replace('-', ' ', $data['tool'])?></b>) </div>
+    <hr>
+    <div id="sorting">
+        <div>
+            <a id="download" href="/admin/download/<?=$data['package_id']?>/<?=$data['package']?>-<?=$data['tool']?>" target="_blank"><i class="fa fa-file-excel-o" aria-hidden="true"></i>Export</a>
+            <a class="back" href="/admin/packages/<?=$data['tool']?>"><i class="fa fa-undo" aria-hidden="true"></i>Back</a>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <input type="text" id="order_number" placeholder="Order Number">
+        <input class="changed" type="text" id="barcode" placeholder="Barcode" maxlength="13">
+        <input class="changed" type="text" id="part_number" placeholder="Part Number">
+        <input type="text" id="laser_marking" placeholder="Laser Marking">
+        <input type="text" id="material" placeholder="Material">
+        <select id="color">
+            <option>BLK</option>
+            <option>BLU</option>
+            <option>BNZ</option>
+            <option>GLD</option>
+            <option>GRN</option>
+            <option>HAA</option>
+            <option>HAB</option>
+            <option>ORG</option>
+            <option>RED</option>
+            <option>SLV</option>
+        </select>
+        <input type="text" id="quantity" placeholder="Quantity">
+        <input type="text" id="demension" placeholder="Demension">
+        <input type="text" id="note" placeholder="Note">
+        <button id="create-order">SAVE</button>
+        
+        <!--<table class="new-order-add">
+            <tr>
+                <td><input type="text" id="order_number" placeholder="Order Number"></td>
+                <td><input class="changed" type="text" id="barcode" placeholder="Barcode" maxlength="13"></td>
+                <td><input class="changed" type="text" id="part_number" placeholder="Part Number"></td>
+                <td><input type="text" id="laser_marking" placeholder="Laser Marking"></td>
+                <td><input type="text" id="material" placeholder="Material"></td>
+
+            </tr>
+            <tr>
+
+                <td>
+                    <select id="color">
+                        <option>BLK</option>
+                        <option>BLU</option>
+                        <option>BNZ</option>
+                        <option>GLD</option>
+                        <option>GRN</option>
+                        <option>HAA</option>
+                        <option>HAB</option>
+                        <option>ORG</option>
+                        <option>RED</option>
+                        <option>SLV</option>
+                    </select>
+                </td>
+                <td><input type="text" id="quantity" placeholder="Quantity"></td>
+                <td><input type="text" id="demension" placeholder="Demension"></td>
+                <td><input type="text" id="note" placeholder="Note"></td>
+                <td><button id="create-order">Create new order</button></td>
+            </tr>
+        </table>-->
+    </div>
+</div>
+<div id="content-box"> 
+      
+
+<!--<table id="new-order-table">
+    <tr>
+        <td><input type="text" id="order_number" placeholder="Order Number"></td>
+        <td><input type="text" id="barcode" placeholder="Barcode"></td>
+        <td><input type="text" id="part_number" placeholder="Part Number"></td>
+        <td><input type="text" id="laser_marking" placeholder="Laser Marking"></td>
+        <td><input type="text" id="material" placeholder="Material"></td>
+        
+    </tr>
+    <tr>
+        
+        <td>
+            <select id="color">
+                <option>BLK</option>
+                <option>BLU</option>
+                <option>BNZ</option>
+                <option>GLD</option>
+                <option>GRN</option>
+                <option>HAA</option>
+                <option>HAB</option>
+                <option>ORG</option>
+                <option>RED</option>
+                <option>SLV</option>
+            </select>
+        </td>
+        <td><input type="text" id="quantity" placeholder="Quantity"></td>
+        <td><input type="text" id="demension" placeholder="Demension"></td>
+        <td><input type="text" id="note" placeholder="Note"></td>
+        <td><button id="create-order">Create new order</button></td>
+    </tr>
+</table>-->
+    
+<? if (!empty($data['orders'][0]['id'])) { ?>
+    
+<table id="order-table">
+    
+    <tr>
+        <td>Pos.</td>
+        <td>User</td>
+        <td>Order Number</td>
+        <td>Part Number</td>
+        <td>Laser Marking</td>
+        <td>Material</td>
+        <td>Color</td>
+        <td>Quantity</td>
+        <td>Demension</td>
+        <td>Date</td>
+        <td>Note</td>
+        <!--<td>Edit</td>
+        <td>Print</td>
+        <td>Delete</td>-->
+    </tr>
+    
+    <? foreach ($data['orders'] as $tab) { ?>
+    
+    <tr order_id="<?=$tab['id']?>">
+        <td><?=$tab['id']?></td>
+        <td><?=$tab['author']?></td>
+        <td><?=$tab['order_number']?></td>
+        <td><?=$tab['part_number']?></td>
+        <td><?=$tab['laser_marking']?></td>
+        <td><?=$tab['material']?></td>
+        <td><?=$tab['color']?></td>
+        <td><?=$tab['quantity']?></td>
+        <td><?=$tab['demension']?></td>
+        <td><?=$tab['date']?></td>
+        <td><?=$tab['note']?></td>
+        <!--<td class="edit-order-open"><a href="/admin/redaction/<?=$tab['id']?>"><img src="/images/if_edit_56106.png"></a></td>
+        <td class="print"><a href="/admin/print/<?=$tab['id']?>" target="_blank"><img src="/images/if_print_56096.png"></a></td>
+        <td class="delete"><img src="/images/if_Remove_27874.png"></td>-->
+    </tr>
+    
+    <? } ?>
+    
+</table>
+    
+<? } else { ?>
+    
+    <p>Orders is not found.</p>
+    
+<? } ?>
+    
+</div>

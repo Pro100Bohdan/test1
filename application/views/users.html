@@ -1,0 +1,50 @@
+<div id="top">
+    <div>USERS</div>
+    <hr>
+    <div id="sorting"></div>
+    <div>
+    <table id="new-order-table">
+        <tr>
+            <td><input type="text" placeholder="User Name" id="name"></td>
+            <td><input type="text" placeholder="Key" id="key"></td>
+            <td>
+                <select id="rights">
+                    <option value="100">User</option>
+                    <option value="150">Moderator</option>
+                    <option value="200">Admin</option>
+                </select>
+            </td>
+            <td><button id="generate-key">Generate Key</button></td>
+            <td><button id="add-new-user">Add User</button></td>
+        </tr>
+        
+    </table>
+    </div>
+</div>
+
+<div id="content-box">
+    
+<table id="package-table">
+    
+    <? if ($data) : ?>
+    
+    <table>
+        <tr><td>Pos.</td><td>User Name</td><td>Key</td><td></td><td></td></tr>
+        
+        <? foreach ($data as $user) : ?>
+        
+        <tr><td><?=$user['pos']?>.</td><td><?=$user['login']?></td><td><?=$user['enter_key']?></td><td><a href="/admin/user_edit/<?=$user['key_id']?>">Edit</a></td><td><button><i class="fa fa-trash-o" aria-hidden="true"></i></button></td></tr>
+        
+        <? endforeach; ?>
+        
+    </table>
+    
+    <? else : ?>
+    
+    <p>Users id not found...</p>
+    
+    <? endif; ?>
+    
+</table>
+    
+</div>

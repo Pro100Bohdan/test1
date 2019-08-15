@@ -1,0 +1,59 @@
+<? if (is_array($data['tr'])) { ?>
+<form action="" method="GET" id="serch"></form>
+<input type="hidden" value="<?=$data['active-page'] + 1 ?>" name="page" form="serch">
+<table id="package-table" class="additional-tables">
+    <tr>
+        <td></td>
+        <td><input name="user" type="text" form="serch" value="<?=$_GET['user']?>" size="5"></td>
+        <td><input name="invoice" type="text" form="serch" value="<?=$_GET['invoice']?>" size="10"></td>
+        <td><input name="stamping" type="text" form="serch" value="<?=$_GET['stamping']?>" size="10"></td>
+        <td><input name="partnumber" type="text" form="serch" value="<?=$_GET['partnumber']?>"></td>
+        <td><input name="barcode" type="text" form="serch" value="<?=$_GET['barcode']?>"></td>
+        <td><input name="ordernumber" type="text" form="serch" value="<?=$_GET['ordernumber']?>"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><button type="submit" form="serch" name="submit" value="Search">Search</button></td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>User</td>
+        <td>Invoice</td>
+        <td>Stamping</td>
+        <td>Part Number</td>
+        <td>Barcode</td>
+        <td>Order Number</td>
+        <td>Quantity exp.</td>
+        <td>Quantity</td>
+        <td>LILS</td>
+        <td>Diff. LILS</td>
+        <td>Notes</td>
+        <td>Command</td>
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) { ?>
+    
+    <tr pos="<?=$tab['pos']?>" package_id="<?=$tab['package_id']?>">
+        <td class="id"><?=$tab['id']?></td>
+        <td class="author"><?=$tab['author']?></td>
+        <td class="invoice"><?=$tab['invoice']?></td>
+        <td class="stamping"><?=$tab['stamping']?></td>
+        <td class="partnumber"><?=$tab['partnumber']?></td>
+        <td class="barcode"><?=$tab['barcode']?></td>
+        <td class="ordernumber"><?=$tab['ordernumber']?></td>
+        <td class="quantity-exp"><?=$tab['qe']?></td>
+        <td class="quantity"><?=$tab['quantity']?></td>
+        <td class="lils"><input type="text" value="" size="5"></td>
+        <td class="difflils"><?=$tab['difflils']?></td>
+        <td class="notes"><input type="text" value="<?=$tab['notes']?>"></td>
+        <td><button class="save-to-db">Save</button></td>
+    </tr>
+    
+    <? } ?>
+    
+<? } else { ?>
+    
+    <p>Packages is not found.</p>
+    
+<? } ?>

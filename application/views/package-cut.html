@@ -1,0 +1,66 @@
+<div id="top">
+    <div>ORDERS</div>
+    <hr>
+    <div id="sorting">
+        <div>
+            <a sort='undefined' href="/admin/packages">All packages</a>
+            <a sort='Bystronik' href="/admin/packages/Bystronik">Bystronik</a>
+            <a sort='CNC' href="/admin/packages/CNC">CNC</a>
+            <a sort='Riveting' href="/admin/packages/Riveting">Riveting</a>
+            <a sort='LaserMarking' href="/admin/packages/Laser-Marking/">Laser marking</a>
+            <a sort='SteelPacking' href="/admin/packages/Steel-Packing/">Steel packing</a>
+            <a sort='Grooving' href="/admin/packages/Grooving/">Grooving</a>
+        </div>
+        <div>
+            <input type="date" id="data-1">
+            <input type="date" id="date-2">
+        </div>
+    </div>
+    <div>
+       
+    </div>
+    <div class="paginator">
+        <? for($i = 0; $i < 5; $i++) : ?>
+        <a href=""><?=$i?></a>
+        <? endfor; ?>
+    </div>
+</div>
+<div id="content-box">
+    
+<? if (is_array($data['tr'])) { ?>
+    
+<table id="package-table" class="link packages-table">
+    <tr>
+        <td>Pos.</td>
+        <td>Package Number</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Department</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    
+    <? foreach ($data['tr'] as $tab) { ?>
+    
+    <tr package_id="<?=$tab['package_id']?>">
+        <td><?=$tab['package_id']?></td>
+        <td><?=$tab['package_number']?></td>
+        <td><?=$tab['date']?></td>
+        <td><?=$tab['time']?></td>
+        <td><?=str_replace('-', ' ', $tab['tool'])?></td>
+        <td><a href="/admin/edit/<?=$tab['package_id']?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+        <td><a href="/admin/orders/<?=$tab['package_id']?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+        <td><i class="fa fa-archive add-to-archive" package="<?=$tab['package_id']?>" aria-hidden="true"></i></td>
+    </tr>
+    
+    <? } ?>
+    
+<? } else { ?>
+    
+    <p>Packages is not found.</p>
+    
+<? } ?>
+    
+</table>
+</div>

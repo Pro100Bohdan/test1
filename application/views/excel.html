@@ -1,0 +1,62 @@
+<title>Export to excel file</title>
+<div id="top">
+
+    <style>
+        td {border: 1px solid black}
+        table {border-collapse: collapse;width: 100%}
+    </style>
+    
+</div>
+<div id="excel">
+<script type="text/javascript">
+var tableToExcel = (function () {
+    var uri = 'data:application/vnd.ms-excel;base64,'
+        , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'
+        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name, filename) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+ 
+            document.getElementById("dlink").href = uri + base64(format(template, ctx));
+            document.getElementById("dlink").download = filename;
+            document.getElementById("dlink").click();
+ 
+        }
+    })()
+</script>
+
+    <? if($data['orders']) : ?>
+    
+<p>Export to excel file</p>
+
+<a id="dlink"  style="display:none;"></a>
+<input style="margin-bottom:20px;" type="button" onclick="tableToExcel('testTable', 'name', '<?=$data['package']?>')" value="Export to Excel">
+    
+<table id="testTable">
+    <tr><td style="background-color:#b2b2b2; font-size:20px; height: 28px"><?=$data['package']?></td><td></td><td></td><td colspan="5">Issue date/ Datum vystaven: <?=$data['date']?></td></tr>
+    <tr><td colspan="3">Issue date/ Datum vystaven: <?=$data['date']?></td><td colspan="5">Adresa doruceni/Ship to:</td></tr>
+    <tr class="styles"><td colspan="3">Krkonosska 1511/5  PRAHA 2</td><td colspan="5">Anodal LLC, 3 Podskarbinska Street,</td></tr>
+    <tr><td colspan="3">VINOHRADY  120 00 PRAHA 2 Czech Republic</td><td colspan="5">03-829 Warsawa city, POLAND</td></tr>
+    <tr><td colspan="3">www.supersprox.cz	IN: 26158451, VAT no./ DIN: CZ26158451</td><td colspan="5">Tel: +48 22 813 08 35, Fax: +48 2 813 08 35</td></tr>
+    <tr><td colspan="3">Wijas	Tel: +420 284 812 372, Fax: +420 266 311 171</td><td colspan="5">Tel: +48 22 813 08 35, Fax: +48 2 813 08 35</td></tr>
+    <tr><td colspan="3">Vystavi/Issued by:   Aneta Pasenova, aneta@supersprox.com</td><td></td><td></td><td></td><td></td><td></td></tr>
+    
+    
+    <tr><td style="background-color:#b2b2b2">Order Number</td><td style="background-color:#b2b2b2">Part Number</td><td style="background-color:#b2b2b2">Laser Number</td><td style="background-color:#b2b2b2">Material</td><td style="background-color:#b2b2b2;width:50px">Color</td><td style="background-color:#b2b2b2">Quantity</td><td style="background-color:#b2b2b2">Demension</td><td style="background-color:#b2b2b2">Note</td></tr>
+    
+    <? foreach($data['orders'] as $order) : ?>
+    
+    <tr><td><?=$order['order_number']?></td><td><?=$order['part_number']?></td><td><?=$order['laser_marking']?></td><td><?=$order['material']?></td><td><?=$order['color']?></td><td><?=$order['quantity']?></td><td><?=$order['demension']?></td><td><?=$order['note']?></td></tr>
+    
+    <? endforeach; ?>
+    
+</table>
+    
+    <? else : ?>
+    
+    <p>This package is empty.</p>
+    
+    <? endif; ?>
+    
+</div>
